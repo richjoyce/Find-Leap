@@ -24,7 +24,7 @@ IF(UNIX)
         /usr/local/include
         /opt/leap/include
         /opt/leap_sdk/include
-        /opt/include INTERNAL)
+        /opt/include ${INTERNAL})
     SET(LEAP_LIBRARY_SEARCH_DIRS
         /usr/lib
         /usr/lib64
@@ -33,12 +33,13 @@ IF(UNIX)
         /opt/leap/lib
         /opt/leap/lib64
         /opt/leap_sdk/lib
-        /opt/leap_sdk/lib64 INTERNAL)
-    SET(LEAP_INC_DIR_SUFFIXES PATH_SUFFIXES leap)
+        /opt/leap_sdk/lib64 ${INTERNAL})
+    SET(LEAP_INC_DIR_SUFFIXES ${PATH_SUFFIXES} leap Leap)
+    SET(LEAP_LIB_DIR_SUFFIXES ${PATH_SUFFIXES} leap Leap)
 ELSE(UNIX)
     #WIN32
-    SET(LEAP_INC_DIR_SUFFIXES PATH_SUFFIXES inc)
-    SET(LEAP_LIB_DIR_SUFFIXES PATH_SUFFIXES lib)
+    SET(LEAP_INC_DIR_SUFFIXES ${PATH_SUFFIXES} inc)
+    SET(LEAP_LIB_DIR_SUFFIXES ${PATH_SUFFIXES} lib)
 ENDIF(UNIX)
 
 # Set name of the Leap library to use
